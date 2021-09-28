@@ -7,7 +7,8 @@
     "start": "node src/server.js",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
-    "build": "tsc"
+    "build": "tsc",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
@@ -22,6 +23,7 @@
     "express": "^4.17.1",
     "knex": "^0.95.4",
     "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "ts-node": "^10.2.1"
   }
 }
