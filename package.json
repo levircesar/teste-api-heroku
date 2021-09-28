@@ -4,7 +4,7 @@
   "main": "server.ts",
   "license": "MIT",
   "engines": {
-    "node": "14.17.3"
+    "node": "14.16.1"
   },
   "scripts": {
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
@@ -26,7 +26,6 @@
     "express": "^4.17.1",
     "knex": "^0.95.4",
     "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.2",
-    "ts-node": "^10.2.1"
+    "sqlite3": "^5.0.2"
   }
 }
