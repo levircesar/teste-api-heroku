@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "server.ts",
   "license": "MIT",
+  "engines": {
+    "node": "14.17.3"
+  },
   "scripts": {
-    "start": "node src/server.js",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
-    "build": "tsc",
-    "postinstall": "npm run build"
+    "dev": "ts-node src/server.ts",
+    "start": "ts-node dist/src/server.js",
+    "build": "tsc -p ."
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
