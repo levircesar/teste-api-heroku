@@ -7,7 +7,7 @@
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
     "dev": "ts-node src/server.ts",
-    "start": "ts-node dist/src/server.js",
+    "start": "node dist/src/server.js",
     "build": "tsc -p ."
   },
   "devDependencies": {
