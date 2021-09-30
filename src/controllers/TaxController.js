@@ -1,23 +1,12 @@
-import { Request , Response } from 'express';
+const db = require('../database/connection')
 
-import db from '../database/connection';
-
-/*
-//caso queira alterar uma tabela dentro de outra
-interface ScheduleItem{
-  name: string;
-  email: string;
-  whatsapp: string;
-}
-*/
-
-export default class TaxController{
-  async index(req: Request , res: Response){
+module.exports = {
+  async index(req , res){
     const filters = req.query;
 
-    const name = filters.name as string;
-    const email = filters.email as string;
-    const whatsapp = filters.whatsapp as string;
+    const name = filters.name;
+    const email = filters.email;
+    const whatsapp = filters.whatsapp;
 
 
     if(!name || !email || !whatsapp ){
@@ -33,17 +22,17 @@ export default class TaxController{
       .select('taxusers.*');
       
     return res.json(data);
-  }
+  },
 
-  async listAll(req: Request , res: Response){
+  async listAll(req  , res){
     const classes = await db('taxusers')
       .select('taxusers.*');
     return res.json(classes);
-  }
+  },
 
-  async delete(req: Request , res: Response){
+  async delete(req , res){
     const filters = req.params;
-    const id = filters.id as string;
+    const id = filters.id ;
 
     if(!id){
       return res.status(400).json({
@@ -59,9 +48,9 @@ export default class TaxController{
     return res.status(201).json({
       message: 'Valor deleted'
     });
-  }
+  },
   
-  async create(req : Request, res : Response){
+  async create(req , res ){
     const {
       name,
       email,

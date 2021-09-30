@@ -1,13 +1,15 @@
-import express from 'express';
-import TaxController from './controllers/TaxController';
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
+const taxController = require('./controllers/TaxController')
 
 const routes = express.Router();
 
-const taxController = new TaxController();
 routes.get('/taxusers', taxController.index);
 routes.post('/taxusers', taxController.create);
 
 routes.get('/taxusers/list', taxController.listAll);
 
 routes.delete('/taxusers/:id', taxController.delete);
-export default routes;
+module.exports = routes;

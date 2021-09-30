@@ -1,7 +1,6 @@
 //gerencia o banco de dados
-import knex from 'knex';
-import path from 'path';
-
+const path = require('path');
+const knex = require('knex');
 //migrations: controla as versoes do banco de dados; 
 const db = knex({
     client: 'sqlite3',
@@ -11,4 +10,4 @@ const db = knex({
     useNullAsDefault: true,
 });
 
-export default db;
+module.exports = db;
